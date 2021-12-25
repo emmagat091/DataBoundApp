@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="ContactList.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelStretchLayout id="psl1">
+                <f:facet name="center">
+                    <!-- id="af_one_column_stretched"   -->
+                    <af:decorativeBox theme="dark" id="db1">
+                        <f:facet name="center">
+                            <af:decorativeBox theme="medium" id="db2">
+                                <f:facet name="center">
+                                    <af:panelStretchLayout id="psl2">
+                                        <f:facet name="bottom"/>
+                                        <f:facet name="center">
+                                            <af:table value="#{bindings.Contact.collectionModel}" var="row"
+                                                      rows="#{bindings.Contact.rangeSize}"
+                                                      emptyText="#{bindings.Contact.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                      fetchSize="#{bindings.Contact.rangeSize}" rowBandingInterval="0"
+                                                      id="t1">
+                                                <af:column sortProperty="#{bindings.Contact.hints.name.name}"
+                                                           sortable="true"
+                                                           headerText="#{bindings.Contact.hints.name.label}" id="c1">
+                                                    <af:outputText value="#{row.name}"
+                                                                   shortDesc="#{bindings.Contact.hints.name.tooltip}"
+                                                                   id="ot1"/>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.Contact.hints.email.name}"
+                                                           sortable="true"
+                                                           headerText="#{bindings.Contact.hints.email.label}" id="c2">
+                                                    <af:outputText value="#{row.email}"
+                                                                   shortDesc="#{bindings.Contact.hints.email.tooltip}"
+                                                                   id="ot2"/>
+                                                </af:column>
+                                            </af:table>
+                                        </f:facet>
+                                        <f:facet name="start"/>
+                                        <f:facet name="end"/>
+                                        <f:facet name="top"/>
+                                    </af:panelStretchLayout>
+                                </f:facet>
+                            </af:decorativeBox>
+                        </f:facet>
+                    </af:decorativeBox>
+                </f:facet>
+            </af:panelStretchLayout>
+        </af:form>
+    </af:document>
+</f:view>
